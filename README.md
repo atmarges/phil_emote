@@ -26,9 +26,10 @@ into ten clusters. Then, tweets containing news were added to the dataset to rep
 ## Quickstart
 Create an instance of `PhilEmoteModel`. Then, pass a list of tweets to `predict_dataset` to
 predict its respective emotion. Alternatively, the model can be used to predict sentiment by 
-setting `output_type = 'sentiment'`. Also, setting `output_type = 'emoji'` will output the 
+setting `output_type='sentiment'`. Also, setting `output_type='emoji'` will output the 
 emoji labels used.
 
+Running the following code:
 ```python
 from phil_emote.models import PhilEmoteModel
 
@@ -44,4 +45,14 @@ model = PhilEmoteModel()
 pred = model.predict_dataset(dataset, output_type='emotion')
 print(pred)
 
+```
+
+will output the following:
+```bash
+['unammused', 'angry', 'neutral', 'love', 'love']
+```
+
+Setting `output_type='sentiment'` will output the following:
+```bash
+['negative', 'negative', 'neutral', 'positive', 'positive']
 ```

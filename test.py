@@ -9,9 +9,5 @@ dataset = [
 ]
 
 model = PhilEmoteModel()
-pred = model.predict_dataset(dataset, output_type='emotion')
+pred = model.predict_dataset(dataset, output_type='sentiment')
 print(pred)
-
-#model = phil_emote.load_model()
-#output = phil_emote.predict_dataset(dataset, model)
-# print(output)
