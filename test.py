@@ -9,6 +9,6 @@ dataset = [
     "Ano, sasagot ka pa? Ha?"
 ]
 
-model = PhilEmoteModel(json_file=json_file, weight_file=weight_file)
+model = PhilEmoteModel()
 pred = model.predict_dataset(dataset, output_type='emotion')
 print(pred)
