@@ -12,17 +12,20 @@ class PhilEmoteModel():
     model_dir = os.path.join(file_dir, 'model')
     lex_dir = os.path.join(file_dir, 'lexicon')
 
-    json_file = os.path.join(model_dir, 'phil_emote.json')
-    weight_file = os.path.join(model_dir, 'phil_emote.h5')
-    words_file = os.path.join(lex_dir, 'words.tsv')
-    classes_file = os.path.join(lex_dir, 'classes.tsv')
-    maxlen = 50
-
-    def __init__(self):
+    def __init__(self, 
+        json_file = os.path.join(model_dir, 'phil_emote.json'),
+        weight_file = os.path.join(model_dir, 'phil_emote.h5'),
+        words_file = os.path.join(lex_dir, 'words.tsv'),
+        classes_file = os.path.join(lex_dir, 'classes.tsv'),
+        maxlen = 50):
+    
+        self.classes_file = classes_file
+        self.maxlen = maxlen
+    
         self.tokenizer = Tokenizer()
-        self.word_index = self.load_words(words_file=self.words_file)
+        self.word_index = self.load_words(words_file=words_file)
         self.model = self.load_model(
-            json_file=self.json_file, weight_file=self.weight_file)
+            json_file=json_file, weight_file=weight_file)
 
     def load_model(self, json_file, weight_file):
         # load json and create model
@@ -75,4 +78,5 @@ class PhilEmoteModel():
 
         class_dict = self.load_classes(
             classes_file=self.classes_file, output_type=output_type)
+
         return [class_dict[np.argmax(i)] for i in prediction]

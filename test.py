@@ -6,8 +6,9 @@ dataset = [
     "May bagong bagyo ang namataan sa kanlurang bahagi ng bansa.",
     "Thank you po Lord Jesus at gumana din sya.",
     "Congrats po sa inyong lahat!",
+    "Ano, sasagot ka pa? Ha?"
 ]
 
-model = PhilEmoteModel()
-pred = model.predict_dataset(dataset, output_type='sentiment')
+model = PhilEmoteModel(json_file=json_file, weight_file=weight_file)
+pred = model.predict_dataset(dataset, output_type='emotion')
 print(pred)
