@@ -10,5 +10,5 @@ dataset = [
 ]
 
 model = PhilEmoteModel()
-pred = model.predict_dataset(dataset, output_type='emotion')
+pred = model.predict_dataset(dataset, output_type='informative')
 print(pred)

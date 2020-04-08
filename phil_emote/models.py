@@ -45,8 +45,7 @@ class PhilEmoteModel():
         return word_index
 
     def load_classes(self, classes_file, output_type='emotion'):
-        class_dataset = pd.read_csv(classes_file, sep='\t', names=[
-                                    'index', 'emoji', 'emotion', 'sentiment'])
+        class_dataset = pd.read_csv(classes_file, sep='\t', header=0)
         class_dict = {class_dataset['index'][idx]: class_dataset[output_type][idx]
                       for idx, i in enumerate(class_dataset['emoji'])}
 
